@@ -2,10 +2,10 @@ package com.aarw.dexanalyze.ui.navigation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.ShowChart
 import androidx.compose.material.icons.outlined.Analytics
 import androidx.compose.material.icons.outlined.Dashboard
 import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material.icons.outlined.ShowChart
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -40,7 +40,7 @@ private data class NavItem(
 
 private val navItems = listOf(
     NavItem("dashboard", Icons.Outlined.Dashboard, "Dashboard"),
-    NavItem("progress",  Icons.Outlined.ShowChart,  "Progress"),
+    NavItem("progress",  Icons.AutoMirrored.Outlined.ShowChart,  "Progress"),
     NavItem("analysis",  Icons.Outlined.Analytics,  "Analysis"),
     NavItem("settings",  Icons.Outlined.Settings,   "Settings")
 )
