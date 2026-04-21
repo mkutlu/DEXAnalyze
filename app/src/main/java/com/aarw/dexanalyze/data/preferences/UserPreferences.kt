@@ -1,6 +1,7 @@
 package com.aarw.dexanalyze.data.preferences
 
 import android.content.Context
+import androidx.core.content.edit
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,12 +17,12 @@ class UserPreferences(context: Context) {
     val isDarkTheme: StateFlow<Boolean> = _isDarkTheme.asStateFlow()
 
     fun setUseMetric(value: Boolean) {
-        prefs.edit().putBoolean(KEY_USE_METRIC, value).apply()
+        prefs.edit { putBoolean(KEY_USE_METRIC, value) }
         _useMetric.value = value
     }
 
     fun setDarkTheme(value: Boolean) {
-        prefs.edit().putBoolean(KEY_DARK_THEME, value).apply()
+        prefs.edit { putBoolean(KEY_DARK_THEME, value) }
         _isDarkTheme.value = value
     }
 

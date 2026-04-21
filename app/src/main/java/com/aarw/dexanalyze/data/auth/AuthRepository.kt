@@ -2,6 +2,7 @@ package com.aarw.dexanalyze.data.auth
 
 import android.net.Uri
 import android.util.Base64
+import androidx.core.net.toUri
 import com.aarw.dexanalyze.util.Logger
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -52,7 +53,7 @@ class AuthRepository(private val tokenStore: TokenStore) {
         Logger.d(TAG, "Building OAuth authorization URL")
         val verifier = generateCodeVerifier()
         val challenge = generateCodeChallenge(verifier)
-        val url = Uri.parse(OAuthConfig.AUTH_ENDPOINT).buildUpon()
+        val url = OAuthConfig.AUTH_ENDPOINT.toUri().buildUpon()
             .appendQueryParameter("client_id", OAuthConfig.CLIENT_ID)
             .appendQueryParameter("redirect_uri", OAuthConfig.REDIRECT_URI)
             .appendQueryParameter("response_type", "code")
