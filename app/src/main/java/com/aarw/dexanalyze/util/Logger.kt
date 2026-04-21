@@ -27,7 +27,7 @@ object Logger {
         Log.e("$TAG:$tag", sanitize(message), throwable)
     }
 
-    private fun sanitize(message: String): String {
+    internal fun sanitize(message: String): String {
         var sanitized = message
         SENSITIVE_PATTERNS.forEach { pattern ->
             sanitized = sanitized.replace(pattern, "[REDACTED]")
