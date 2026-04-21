@@ -191,8 +191,8 @@ fun Sparkline(
 @Composable
 fun SectionHeader(
     title: String,
-    tooltip: String? = null,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    tooltip: String? = null
 ) {
     Row(
         modifier = modifier,
