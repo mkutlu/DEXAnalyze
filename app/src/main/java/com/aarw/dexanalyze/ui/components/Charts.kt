@@ -142,8 +142,8 @@ fun LineChart(
 @Composable
 fun HorizontalBarChart(
     items: List<HBarItem>,
-    maxValue: Float = 50f,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    maxValue: Float = 50f
 ) {
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
         items.forEach { item ->

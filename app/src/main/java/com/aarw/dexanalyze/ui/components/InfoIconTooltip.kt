@@ -14,8 +14,8 @@ import kotlinx.coroutines.launch
 @Composable
 fun InfoIconTooltip(
     text: String,
-    title: String? = null,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    title: String? = null
 ) {
     val state = rememberTooltipState(isPersistent = true)
     val scope = rememberCoroutineScope()

@@ -13,3 +13,11 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Sensitive files - never commit tokens or credentials
+*.token
+*.secret
+sonar-project.local.properties
+run-sonar-scan.local.bat
+.env
+.env.local
