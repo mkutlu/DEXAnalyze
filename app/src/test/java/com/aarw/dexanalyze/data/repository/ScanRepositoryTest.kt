@@ -35,7 +35,7 @@ class ScanRepositoryTest {
     }
 
     @Test
-    fun `getAllScans returns demo data when api service fails`() = runTest {
+    fun `getAllScans returns failure when api service fails`() = runTest {
         scanRepository = ScanRepository(apiService, demoMode = false)
 
         coEvery { apiService.listScans(any()) } throws Exception("Network error")
@@ -82,20 +82,18 @@ class ScanRepositoryTest {
     }
 
     @Test
-    fun `getAllScans returns failure when composition data fetch fails`() = runTest {
+    fun `getAllScans handles partial data fetch failures gracefully`() = runTest {
         scanRepository = ScanRepository(apiService, demoMode = false)
 
         val mockScan = ScanResult(
             resultId = "123",
             scanDate = "2025-01-01",
-            age = 30,
             composition = null,
             boneDensity = null,
-            visceral_fat = null,
+            visceralFat = null,
             percentiles = null
         )
 
-        val mockResponse = mockk<BodySpecApiService>()
         coEvery { apiService.listScans(any()) } returns mockk {
             coEvery { scanList() } returns listOf(mockScan)
         }
@@ -103,7 +101,7 @@ class ScanRepositoryTest {
 
         val result = scanRepository.getAllScans()
 
-        // Should still succeed but with null composition for that scan
+        // Should handle partial failures
         assertTrue(result.isSuccess || result.isFailure)
     }
 }

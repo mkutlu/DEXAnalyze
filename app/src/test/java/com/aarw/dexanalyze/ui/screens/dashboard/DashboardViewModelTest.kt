@@ -38,8 +38,8 @@ class DashboardViewModelTest {
     @Test
     fun `loadScans updates state with scans on success`() = runTest {
         val mockScans = listOf(
-            ScanResult(resultId = "1", scanDate = "2025-01-01", age = 30),
-            ScanResult(resultId = "2", scanDate = "2024-12-01", age = 30)
+            ScanResult(resultId = "1", scanDate = "2025-01-01"),
+            ScanResult(resultId = "2", scanDate = "2024-12-01")
         )
         coEvery { scanRepository.getAllScans() } returns Result.success(mockScans)
 
@@ -74,7 +74,7 @@ class DashboardViewModelTest {
 
     @Test
     fun `selectScan updates selected scan`() {
-        val scan = ScanResult(resultId = "123", scanDate = "2025-01-01", age = 30)
+        val scan = ScanResult(resultId = "123", scanDate = "2025-01-01")
         viewModel.selectScan(scan)
 
         viewModel.uiState.test {
@@ -89,9 +89,9 @@ class DashboardViewModelTest {
     @Test
     fun `sortScans by date descending`() = runTest {
         val mockScans = listOf(
-            ScanResult(resultId = "1", scanDate = "2024-12-01", age = 30),
-            ScanResult(resultId = "2", scanDate = "2025-01-01", age = 30),
-            ScanResult(resultId = "3", scanDate = "2024-11-01", age = 30)
+            ScanResult(resultId = "1", scanDate = "2024-12-01"),
+            ScanResult(resultId = "2", scanDate = "2025-01-01"),
+            ScanResult(resultId = "3", scanDate = "2024-11-01")
         )
         coEvery { scanRepository.getAllScans() } returns Result.success(mockScans)
 
