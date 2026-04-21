@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Adaptive icon background. Uses the mid-tone from the brand gradient
+         so the foreground figure stays readable on any launcher mask shape.
+         If you already have a colors.xml, just add this <color> line to it. -->
+    <color name="ic_launcher_background">#0E4C75</color>
+</resources>

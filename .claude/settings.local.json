@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_BodySpec__fetch",
+      "WebFetch(domain:app.bodyspec.com)",
+      "WebSearch",
+      "Bash(curl -s https://app.bodyspec.com/openapi.json)",
+      "Read(//tmp/**)",
+      "mcp__claude_ai_BodySpec__list_scan_results",
+      "Bash(./gradlew build *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
