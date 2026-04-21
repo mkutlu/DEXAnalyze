@@ -125,6 +125,7 @@ private fun LoginLandingScreen(uiState: LoginUiState, onSignIn: () -> Unit) {
     }
 }
 
+@Suppress("SetJavaScriptEnabled")
 @Composable
 private fun AuthWebView(
     authUrl: String,
@@ -138,6 +139,8 @@ private fun AuthWebView(
         modifier = Modifier.fillMaxSize(),
         factory = { context ->
             WebView(context).apply {
+                // JavaScript is required for OAuth provider's login page (Keycloak)
+                // XSS risk is mitigated by loading only trusted OAuth endpoints
                 settings.javaScriptEnabled = true
                 settings.domStorageEnabled = true
 
